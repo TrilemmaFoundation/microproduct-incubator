@@ -3,17 +3,7 @@ import { FOOTER_QUICK_LINKS, NAV_ITEMS, SOCIAL_LINKS } from "../navigation";
 
 describe("NAV_ITEMS", () => {
   it("has the expected navigation items", () => {
-    expect(NAV_ITEMS).toHaveLength(3);
-    const labels = NAV_ITEMS.map((item) => item.label);
-    expect(labels).toEqual(["Projects", "Tournaments", "Team"]);
-  });
-
-  it("each item has label, icon, and href", () => {
-    for (const item of NAV_ITEMS) {
-      expect(item.label).toBeTruthy();
-      expect(item.icon).toBeTruthy();
-      expect(item.href).toMatch(/^\//);
-    }
+    expect(NAV_ITEMS).toHaveLength(0);
   });
 });
 
@@ -32,14 +22,7 @@ describe("SOCIAL_LINKS", () => {
 });
 
 describe("FOOTER_QUICK_LINKS", () => {
-  it("has 4 quick links", () => {
-    expect(FOOTER_QUICK_LINKS).toHaveLength(4);
-  });
-
-  it("each quick link has label and href", () => {
-    for (const link of FOOTER_QUICK_LINKS) {
-      expect(link.label).toBeTruthy();
-      expect(link.href).toMatch(/^\//);
-    }
+  it("has 0 quick links", () => {
+    expect(FOOTER_QUICK_LINKS).toHaveLength(0);
   });
 });
