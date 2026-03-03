@@ -1,0 +1,163 @@
+# Trilemma Foundation Cursor Rules
+
+## Tech Stack 
+- **Frontend**: React 19.0.0, TypeScript 5.5.3, Vite 7.0.0, React Router v7.8.2
+- **Styling**: Tailwind CSS 3.4.13 with custom UI kit preset
+- **Linting & Formatting**: Biome 2.3.10 (replaces ESLint + Prettier)
+- **Hosting**: Vercel (static site)
+- **Data**: Google Sheets CSV export, Google Docs embeds
+
+## Project Structure
+
+```
+├── src/
+│   ├── components/
+│   │   ├── layout/        # PageLayout, Header, Footer, TwoColumnSection
+│   │   ├── pages/
+│   │   │   ├── landing/   # Landing page (Hero, UniversityMarquee, ProofOfPerformance)
+│   │   │   ├── legal/     # Privacy, Terms pages
+│   │   │   ├── projects/  # Projects table with Google Sheets data
+│   │   │   ├── resources/ # Embedded Google Docs viewer
+│   │   │   ├── team/      # Team directors page
+│   │   │   └── tournaments/ # Tournament info and winners
+│   │   └── UI/            # Reusable components (Button, StatusBadge, Section, etc.)
+│   ├── hooks/             # Custom React hooks (useProjectsData, useBodyScrollLock)
+│   ├── constants/         # Navigation, external links, university data (community.json)
+│   ├── assets/            # Static images (logos, headshots)
+│   └── types/             # Frontend-specific type declarations
+├── public/                # Favicons and static assets
+└── tailwind-ui-kit.preset.ts  # Design system tokens
+```
+
+## Routes
+
+| Route | Component | Description |
+|-------|-----------|-------------|
+| `/` | Landing | Hero, university marquee, proof of performance |
+| `/projects` | Projects | Sortable/filterable table from Google Sheets |
+| `/tournaments` | Tournaments | Current/past tournaments with winners |
+| `/team` | Team | Directors with bios and LinkedIn |
+| `/resources` | Resources | Embedded Google Docs with fullscreen |
+| `/privacy` | Privacy | Privacy policy |
+| `/terms` | Terms | Terms and conditions |
+
+## Coding Conventions
+
+### Linting & Formatting (Biome)
+- Use Biome for both linting and formatting
+- Run `npm run lint` to check for issues
+- Run `npm run lint:fix` to auto-fix linting issues
+- Run `npm run format` to format all files
+- Run `npm run check` to run both lint and format checks
+- Configuration: `biome.json` with recommended rules
+- Use `import type` for type-only imports
+- Double quotes for strings (formatter enforces this)
+- 2-space indentation (formatter enforces this)
+
+### TypeScript
+- Use strict mode (`strict: true` in tsconfig)
+- Use `interface` for object shapes, `type` for unions/aliases
+- Prefer explicit return types on exported functions
+
+### React Components
+- Use functional components with `React.FC<Props>` typing
+- Define props interfaces inline above component
+- Export components as default
+- File naming: PascalCase matching component name
+- Use `memo()` for expensive components (see TournamentsWinners, TeamDirectors)
+
+```tsx
+interface ComponentProps {
+  title: string;
+  onClick?: () => void;
+}
+
+const Component: React.FC<ComponentProps> = ({ title, onClick }) => {
+  return <button onClick={onClick}>{title}</button>;
+};
+
+export default Component;
+```
+
+### Custom Hooks
+- Prefix with `use` (e.g., `useProjectsData`, `useBodyScrollLock`)
+- Return object with named properties: `{ data, loading, error }`
+- Handle loading/error states internally
+
+```tsx
+// Data fetching hook pattern
+export const useProjectsData = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // ... fetch logic
+  
+  return { projects, loading, error };
+};
+
+// Utility hook pattern
+export const useBodyScrollLock = (isLocked: boolean): void => {
+  useEffect(() => {
+    if (isLocked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isLocked]);
+};
+```
+
+## Styling
+
+### Tailwind Conventions
+- Use design tokens from `tailwind-ui-kit.preset.ts`
+- Semantic colors: `bg-background`, `text-foreground`, `text-muted-foreground`
+- Brand colors: `brand-navy`, `brand-orange`, `brand-amber`, `brand-blue`, `brand-white`
+- Responsive prefixes: `xs:`, `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- Touch targets: `min-h-touch` (44px), `touch-manipulation`
+
+### Component Styling Pattern
+```tsx
+const baseStyles = 'rounded-lg transition-all';
+const variantStyles = 'bg-brand-blue text-foreground';
+const stateStyles = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
+
+return <button className={`${baseStyles} ${variantStyles} ${stateStyles}`} />;
+```
+
+## Best Practices
+
+### Do
+- Keep components focused and single-purpose
+- Extract repeated logic into custom hooks
+- Use early returns for loading/error states
+- Colocate related files (component + its styles/types)
+- Use `useMemo` for expensive computations in render
+- Use lazy loading for route components (see App.tsx)
+- Use `loading="lazy"` and `decoding="async"` on images
+
+### Don't
+- Mix business logic with UI components
+- Ignore TypeScript errors (fix them)
+- Ignore Biome linting/formatting errors (run `npm run lint:fix` and `npm run format`)
+- Store sensitive data in frontend state
+
+### File Organization
+- Pages: One directory per feature (`pages/landing/`, `pages/projects/`)
+- Components: Group by function (`UI/`, `layout/`)
+- Hooks: One hook per file in `hooks/`
+- Constants: Centralized in `constants/` (navigation.ts, externalLinks.ts, community.json)
+
+### Performance
+- Use `React.memo()` sparingly for expensive components
+- Pagination for large data sets (see `ProjectsTable`)
+- Lazy load routes (all routes use React.lazy in App.tsx)
+- Optimize images: use WebP format, include width/height attributes
+- Use CSS visibility toggle for tab switching (see ResourcesTabs)
+
+### External Data Integration
+- Google Sheets: Fetch CSV via public export URL, parse with custom `parseCSV` function
+- Google Docs: Embed via iframe with published document URL
+- External forms: Link to Google Forms for enrollment

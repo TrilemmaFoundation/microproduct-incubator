@@ -1,0 +1,136 @@
+
+> trilemma-foundation@0.0.0 test:coverage
+> vitest run --coverage
+
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90m/Users/mattfaltyn/Desktop/hypertrial_trilemma/foundation/website[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+ [32m✓[39m src/components/pages/resources/__tests__/ResourcesTabs.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 88[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/ecosystem/__tests__/LandingDatathonCard.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 83[2mms[22m[39m
+ [32m✓[39m src/components/pages/careers/__tests__/Opportunities.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 95[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useMembersData.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 174[2mms[22m[39m
+ [32m✓[39m src/components/pages/careers/roles/__tests__/RolePageTemplate.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 153[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useCompaniesData.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 240[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useProjectsData.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 239[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useCommunityData.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 335[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useCapstonesData.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 117[2mms[22m[39m
+ [32m✓[39m src/components/pages/projects/sections/__tests__/ProjectsAbout.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 75[2mms[22m[39m
+ [32m✓[39m src/components/pages/projects/__tests__/Projects.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 122[2mms[22m[39m
+ [32m✓[39m src/components/pages/tournaments/__tests__/TournamentsDetails.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 131[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/companies/__tests__/LandingCompanies.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 102[2mms[22m[39m
+ [32m✓[39m src/components/layout/__tests__/Footer.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 71[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/DiscordButton.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 87[2mms[22m[39m
+ [32m✓[39m src/components/layout/__tests__/PageLayout.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 109[2mms[22m[39m
+ [32m✓[39m src/components/pages/team/__tests__/ProfileCard.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 98[2mms[22m[39m
+ [32m✓[39m src/components/pages/projects/sections/__tests__/ProjectsTable.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[32m 67[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/PrimaryButton.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/ResourceCard.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/components/layout/__tests__/Header.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 110[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/OptimizedImage.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 64[2mms[22m[39m
+ [32m✓[39m src/components/pages/legal/__tests__/LegalPages.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 105[2mms[22m[39m
+ [32m✓[39m src/components/pages/resources/__tests__/Resources.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 110[2mms[22m[39m
+ [32m✓[39m src/components/pages/team/__tests__/Team.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 83[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/Section.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/__tests__/LandingProofOfPerformance.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/components/pages/team/__tests__/TeamLeadership.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 123[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/ecosystem/__tests__/WinnerJsonEditor.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 104[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/Button.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[32m 123[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/ecosystem/__tests__/LandingProjectsCard.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/SecondaryButton.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 90[2mms[22m[39m
+ [32m✓[39m src/components/pages/tournaments/__tests__/TournamentPages.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 163[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/hero/__tests__/LandingHero.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 120[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/StatusBadge.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32m✓[39m src/components/UI/__tests__/SectionTitle.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/components/pages/team/__tests__/TeamFacultyMentors.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 80[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/__tests__/Landing.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 107[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/hero/__tests__/LandingUniversityMarquee.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 70[2mms[22m[39m
+ [32m✓[39m src/components/pages/team/__tests__/TeamSkeleton.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/components/layout/__tests__/TwoColumnSection.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[32m 96[2mms[22m[39m
+ [32m✓[39m src/components/pages/careers/roles/__tests__/RoleFellows.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/components/pages/landing/sections/__tests__/LandingEcosystem.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 50[2mms[22m[39m
+ [32m✓[39m src/__tests__/App.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/hooks/__tests__/useBodyScrollLock.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/components/pages/projects/sections/__tests__/ProjectResources.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 30[2mms[22m[39m
+ [32m✓[39m src/constants/__tests__/navigation.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+[90mstdout[2m | api/send-email.test.ts[2m > [22m[2mPOST /api/send-email[2m > [22m[2mshould silently succeed if honeypot is filled
+[22m[39mSpam detected: Honeypot field filled. IP: 127.0.0.1
+
+[90mstdout[2m | api/send-email.test.ts[2m > [22m[2mPOST /api/send-email[2m > [22m[2mshould silently succeed if submission is too fast
+[22m[39mSpam detected: Submission too fast (100ms). IP: 127.0.0.1
+
+[90mstdout[2m | api/send-email.test.ts[2m > [22m[2mPOST /api/send-email[2m > [22m[2mshould apply rate limiting
+[22m[39mRate limit exceeded for IP: 192.168.1.1
+
+ [32m✓[39m src/hooks/__tests__/useScrollToTop.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m api/send-email.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/services/members.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/components/common/__tests__/ScrollToTop.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/utils/__tests__/csvParser.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/utils/__tests__/geoUtils.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m src/constants/__tests__/externalLinks.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m54 passed[39m[22m[90m (54)[39m
+[2m      Tests [22m [1m[32m215 passed[39m[22m[90m (215)[39m
+[2m   Start at [22m 11:07:53
+[2m   Duration [22m 5.55s[2m (transform 1.28s, setup 7.21s, import 4.30s, tests 4.54s, environment 20.15s)[22m
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |     100 |      100 |     100 |     100 |                   
+ components/UI     |     100 |      100 |     100 |     100 |                   
+  Button.tsx       |     100 |      100 |     100 |     100 |                   
+  ...ordButton.tsx |     100 |      100 |     100 |     100 |                   
+  ...aryButton.tsx |     100 |      100 |     100 |     100 |                   
+  ResourceCard.tsx |     100 |      100 |     100 |     100 |                   
+  ...aryButton.tsx |     100 |      100 |     100 |     100 |                   
+  Section.tsx      |     100 |      100 |     100 |     100 |                   
+  SectionTitle.tsx |     100 |      100 |     100 |     100 |                   
+  StatusBadge.tsx  |     100 |      100 |     100 |     100 |                   
+ components/common |     100 |      100 |     100 |     100 |                   
+  ScrollToTop.tsx  |     100 |      100 |     100 |     100 |                   
+ components/layout |     100 |      100 |     100 |     100 |                   
+  Footer.tsx       |     100 |      100 |     100 |     100 |                   
+  PageLayout.tsx   |     100 |      100 |     100 |     100 |                   
+  ...mnSection.tsx |     100 |      100 |     100 |     100 |                   
+ .../pages/landing |     100 |      100 |     100 |     100 |                   
+  Landing.tsx      |     100 |      100 |     100 |     100 |                   
+ ...nding/sections |     100 |      100 |     100 |     100 |                   
+  ...rformance.tsx |     100 |      100 |     100 |     100 |                   
+ ...ions/ecosystem |     100 |      100 |     100 |     100 |                   
+  ...Ecosystem.tsx |     100 |      100 |     100 |     100 |                   
+  ...sonEditor.tsx |     100 |      100 |     100 |     100 |                   
+ .../sections/hero |     100 |      100 |     100 |     100 |                   
+  LandingHero.tsx  |     100 |      100 |     100 |     100 |                   
+  ...tyMarquee.tsx |     100 |      100 |     100 |     100 |                   
+ ...ts/pages/legal |     100 |      100 |     100 |     100 |                   
+  Privacy.tsx      |     100 |      100 |     100 |     100 |                   
+  Terms.tsx        |     100 |      100 |     100 |     100 |                   
+ ...pages/projects |     100 |      100 |     100 |     100 |                   
+  Projects.tsx     |     100 |      100 |     100 |     100 |                   
+ ...jects/sections |     100 |      100 |     100 |     100 |                   
+  ...Resources.tsx |     100 |      100 |     100 |     100 |                   
+ ...ages/resources |     100 |      100 |     100 |     100 |                   
+  Resources.tsx    |     100 |      100 |     100 |     100 |                   
+ ...nts/pages/team |     100 |      100 |     100 |     100 |                   
+  ProfileCard.tsx  |     100 |      100 |     100 |     100 |                   
+  Team.tsx         |     100 |      100 |     100 |     100 |                   
+  ...eadership.tsx |     100 |      100 |     100 |     100 |                   
+  TeamSkeleton.tsx |     100 |      100 |     100 |     100 |                   
+ ...es/tournaments |     100 |      100 |     100 |     100 |                   
+  ...ament2026.tsx |     100 |      100 |     100 |     100 |                   
+  Tournaments.tsx  |     100 |      100 |     100 |     100 |                   
+ ...urnaments/past |     100 |      100 |     100 |     100 |                   
+  ...urnaments.tsx |     100 |      100 |     100 |     100 |                   
+  ...ament2024.tsx |     100 |      100 |     100 |     100 |                   
+ constants         |     100 |      100 |     100 |     100 |                   
+  externalLinks.ts |     100 |      100 |     100 |     100 |                   
+  navigation.ts    |     100 |      100 |     100 |     100 |                   
+ hooks             |     100 |      100 |     100 |     100 |                   
+  ...crollToTop.ts |     100 |      100 |     100 |     100 |                   
+ utils             |     100 |      100 |     100 |     100 |                   
+  csvParser.ts     |     100 |      100 |     100 |     100 |                   
+  geoUtils.ts      |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
