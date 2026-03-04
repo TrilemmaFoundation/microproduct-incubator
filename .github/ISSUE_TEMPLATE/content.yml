@@ -1,0 +1,26 @@
+name: Content proposal
+about: Propose a new doc or improvement to existing content
+labels: [content]
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Section
+      description: Which section should this content live in?
+      placeholder: intro | playbook | resources | contribute
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What gap does this content solve?
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Proposed outline
+      description: Provide a short outline for the page.
+    validations:
+      required: true

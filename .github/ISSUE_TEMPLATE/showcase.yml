@@ -1,0 +1,44 @@
+name: Showcase entry
+about: Add a microproduct to the showcase table
+labels: [showcase]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Microproduct name
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Stage
+      options:
+        - Idea
+        - Prototype
+        - Live
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link (website or repo)
+    validations:
+      required: true
+  - type: input
+    id: maintainer
+    attributes:
+      label: Maintainer
+    validations:
+      required: true

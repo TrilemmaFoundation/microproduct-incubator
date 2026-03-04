@@ -143,3 +143,6 @@ vite.config.ts.timestamp-*
 **/.DS_Store
 .vercel
 .env*.local
+
+# Docusaurus output
+build

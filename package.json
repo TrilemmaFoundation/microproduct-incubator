@@ -1,47 +1,32 @@
 {
-  "name": "trilemma-foundation",
-  "description": "Trilemma Foundation website - A data-driven R&D lab incubating technical talent through global university partnerships and performance-based competitions",
+  "name": "microproduct-incubator",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "Microproduct Incubator Open Knowledge Hub",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint --write .",
-    "format": "biome format --write .",
-    "check": "biome check ."
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
+    "lint:markdown": "markdownlint \"docs/**/*.md\" \"README.md\" \"CONTRIBUTING.md\" \"CODE_OF_CONDUCT.md\" \"templates/**/*.md\"",
+    "check": "npm run validate:frontmatter && npm run lint:markdown && npm run build"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.5.0",
-    "framer-motion": "^12.29.0",
-    "leaflet": "^1.9.4",
-    "leaflet.markercluster": "^1.5.3",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-leaflet": "^5.0.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.10",
-    "@types/geojson": "^7946.0.16",
-    "@types/leaflet": "^1.9.21",
-    "@types/leaflet.markercluster": "^1.5.6",
-    "@types/node": "^24.4.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.20",
-    "knip": "^5.83.1",
-    "postcss": "^8.4.47",
-    "tailwind-scrollbar": "^3.1.0",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.5.3",
-    "vite": "^7.0.0"
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.4",
+    "markdownlint-cli": "^0.43.0"
   },
-  "overrides": {
-    "esbuild": "^0.25.0",
-    "path-to-regexp": "^6.3.0",
-    "undici": "^5.29.0"
+  "engines": {
+    "node": ">=18.0"
   }
 }
