@@ -71,7 +71,7 @@ function validateShowcaseTable() {
   }
 
   const content = fs.readFileSync(showcasePath, 'utf8');
-  const expected = '| Name | Problem | Solution | Stage | Link | Maintainer |';
+  const expected = '| Name | Description | Team | Link |';
 
   if (!content.includes(expected)) {
     errors.push(
