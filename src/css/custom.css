@@ -27,7 +27,7 @@
   padding: 0 0 2.5rem;
 }
 
-.footer .row.footer__links > .footer__col {
+.footer .row.footer__links>.footer__col {
   max-width: none;
   width: auto;
   flex: initial;
@@ -61,7 +61,7 @@
 
 .footer .footer__link-item {
   color: var(--ifm-navbar-link-color);
-  font-size: clamp(1.15rem, 1.02rem + 0.25vw, 1.35rem);
+  font-size: var(--ifm-navbar-link-font-size);
   font-weight: 600;
 }
 
@@ -90,7 +90,7 @@
   margin: 1.7rem 0 0;
   max-width: 720px;
   color: var(--ifm-navbar-link-color);
-  font-size: clamp(1.18rem, 1.06rem + 0.3vw, 1.48rem);
+  font-size: var(--ifm-navbar-link-font-size);
   line-height: 1.52;
 }
 
@@ -103,7 +103,7 @@
 
 .footer .footer__copyright {
   color: var(--ifm-navbar-link-color);
-  font-size: 1.12rem;
+  font-size: var(--ifm-navbar-link-font-size);
 }
 
 @media (max-width: 996px) {
