@@ -4,12 +4,12 @@ import Hero from '../components/Hero';
 export default function Home() {
   return (
     <Layout
-      title="Microproduct Incubator"
-      description="Open knowledge hub for building focused apps that turn data into usable tools and real utility."
+      title="Microproduct Lab"
+      description="An open knowledge hub for building microproducts"
     >
       <Hero
-        title="Microproduct Incubator Open Knowledge Hub"
-        description="Focused apps that turn data into usable tools and real utility. Learn, build, and contribute through open documentation and community-reviewed insights."
+        title="Microproduct Lab"
+        description="Open Knowledge Hub to learn, develop, and contribute insights for building focused apps."
         primaryCta={{
           label: 'Learn',
           to: '/docs/intro/what-is-a-microproduct',

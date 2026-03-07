@@ -1,23 +1,36 @@
 ---
 title: "<Module Title>"
-description: "One-sentence summary of the playbook module."
-last_reviewed: 2026-03-04
+description: "One-sentence summary of this phase module."
+tags: [playbook]
+last_reviewed: 2026-03-05
 ---
 
-## Context
+## Phase Context
 
-What this module covers and when to use it.
+What phase this module supports and when it should be used.
 
-## Steps
+## Decision Gates
 
-1. Step one.
-2. Step two.
-3. Step three.
+1. Gate one.
+2. Gate two.
+3. Gate three.
 
-## Pitfalls
+## Required Artifacts
 
-Common mistakes and how to avoid them.
+- Artifact one.
+- Artifact two.
+
+## Failure Modes
+
+Common ways this phase fails and how to prevent them.
+
+## Contributor Expansion Areas
+
+- Specialized topic one.
+- Specialized topic two.
 
 ## References
 
 - Add primary references.
+
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)

@@ -38,6 +38,139 @@ function hasField(frontmatter, field) {
   return pattern.test(frontmatter);
 }
 
+function isYamlStringScalar(value) {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return false;
+  }
+
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.length >= 2;
+  }
+
+  if (/^[\[{]/.test(trimmed)) {
+    return false;
+  }
+
+  if (/^(true|false|null|~)$/i.test(trimmed)) {
+    return false;
+  }
+
+  if (/^[-+]?(?:\d+\.?\d*|\.\d+)$/.test(trimmed)) {
+    return false;
+  }
+
+  return true;
+}
+
+function splitInlineList(value) {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return [];
+  }
+
+  const items = [];
+  let current = '';
+  let quote = null;
+
+  for (let i = 0; i < value.length; i += 1) {
+    const char = value[i];
+    const previous = i > 0 ? value[i - 1] : '';
+
+    if (quote) {
+      current += char;
+      if (char === quote && previous !== '\\') {
+        quote = null;
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'") {
+      quote = char;
+      current += char;
+      continue;
+    }
+
+    if (char === ',') {
+      items.push(current.trim());
+      current = '';
+      continue;
+    }
+
+    current += char;
+  }
+
+  if (quote) {
+    return null;
+  }
+
+  items.push(current.trim());
+  return items;
+}
+
+function validateTags(frontmatter, filePath) {
+  const lines = frontmatter.split('\n');
+  const tagsIndex = lines.findIndex((line) => /^tags:\s*/.test(line));
+  if (tagsIndex === -1) {
+    return;
+  }
+
+  const tagsLine = lines[tagsIndex];
+  const tagsValue = tagsLine.replace(/^tags:\s*/, '').trim();
+
+  if (tagsValue.startsWith('[') && tagsValue.endsWith(']')) {
+    const items = splitInlineList(tagsValue.slice(1, -1));
+    if (!items) {
+      errors.push(`${filePath}: tags must be a YAML list of strings`);
+      return;
+    }
+    for (const item of items) {
+      if (!isYamlStringScalar(item)) {
+        errors.push(`${filePath}: tags must contain only string values`);
+        return;
+      }
+    }
+    return;
+  }
+
+  if (!tagsValue) {
+    let foundListItem = false;
+
+    for (let i = tagsIndex + 1; i < lines.length; i += 1) {
+      const line = lines[i];
+      if (!line.trim()) {
+        continue;
+      }
+
+      if (!/^\s+/.test(line)) {
+        break;
+      }
+
+      const listItem = line.trim().match(/^-\s+(.+)$/);
+      if (!listItem) {
+        errors.push(`${filePath}: tags must be a YAML list of strings`);
+        return;
+      }
+
+      foundListItem = true;
+      if (!isYamlStringScalar(listItem[1])) {
+        errors.push(`${filePath}: tags must contain only string values`);
+        return;
+      }
+    }
+
+    if (!foundListItem) {
+      errors.push(`${filePath}: tags must be a YAML list of strings`);
+    }
+    return;
+  }
+
+  errors.push(`${filePath}: tags must be a YAML list of strings`);
+}
+
 function validateFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
   const frontmatter = extractFrontmatter(raw);
@@ -53,9 +186,7 @@ function validateFile(filePath) {
     }
   }
 
-  if (hasField(frontmatter, 'tags')) {
-    errors.push(`${filePath}: tags are not supported in frontmatter`);
-  }
+  validateTags(frontmatter, filePath);
 
   const dateMatch = frontmatter.match(/^last_reviewed:\s*(.+)$/m);
   if (!dateMatch) {
@@ -76,7 +207,7 @@ function validateShowcaseTable() {
   }
 
   const content = fs.readFileSync(showcasePath, 'utf8');
-  const expected = '| Name | Problem | Solution | Stage | Link | Maintainer |';
+  const expected = '| Name | Description | Team | Link |';
 
   if (!content.includes(expected)) {
     errors.push(
