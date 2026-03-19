@@ -64,6 +64,20 @@ Dependencies between modules should be apparent to domain experts.
 ### Thoughtful Quality Gates & Feedback Mechanisms
 *Deterministic checks at specific points in the change lifecycle give information to agents and human reviewers, balancing correctness with development friction*
 
+There are a number of key places to hook in an install quality checks, including
+but not limited to:
+- Agent loop (run on each message or code change)
+- Human QA check (feature branch)
+- Pre-commit/pre-push hooks
+- Pull-request
+- CI/CD pipeline
+- Release
+
+Using static analysis tools (linters, type-checkers), tests, and automated code
+review are invaluable for keeping the quality and 'entropy' of the project in
+check. Choosing the right tools and where and when to deploy them is specific to
+every team and project, but a key part of growing from prototyping to product.
+
 
 ## Agent-Assisted Testing Guidance
 
