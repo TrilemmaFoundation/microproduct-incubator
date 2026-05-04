@@ -136,7 +136,8 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      // Infima: 'light' omits .footer--dark (hardcoded grey/blue); tokens come from custom.css.
+      style: 'light',
       links: [
         {
           className: 'footer-col--foundation',
