@@ -20,6 +20,8 @@ npm install
 npm run dev
 ```
 
+`npm run dev` runs a short pre-step that removes `.docusaurus` and `node_modules/.cache` so the first dev compile does not hit stale generated files. Use `npm run clear` for a full Docusaurus clean (including `build/`).
+
 ## Validation
 
 ```bash

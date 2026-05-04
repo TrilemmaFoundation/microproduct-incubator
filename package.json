@@ -4,6 +4,7 @@
   "private": true,
   "description": "Microproduct Incubator Open Knowledge Hub",
   "scripts": {
+    "predev": "node scripts/clear-dev-cache.mjs",
     "dev": "docusaurus start",
     "start": "npm run dev",
     "build": "docusaurus build",

@@ -76,11 +76,12 @@ html[data-theme='light'] {
   --ifm-navbar-search-input-color: var(--color-text-primary);
   --ifm-navbar-search-input-placeholder-color: var(--color-text-secondary);
 
-  --ifm-footer-background-color: var(--color-bg-primary);
+  /* Match navbar chrome: same surface + primary link styling */
+  --ifm-footer-background-color: var(--ifm-navbar-background-color);
   --ifm-footer-color: var(--color-text-secondary);
-  --ifm-footer-link-color: var(--color-text-secondary);
-  --ifm-footer-link-hover-color: var(--color-accent-orange);
-  --ifm-footer-title-color: var(--color-text-primary);
+  --ifm-footer-link-color: var(--ifm-navbar-link-color);
+  --ifm-footer-link-hover-color: var(--ifm-navbar-link-hover-color);
+  --ifm-footer-title-color: var(--ifm-navbar-link-color);
 
   --ifm-color-emphasis-0: var(--color-text-primary);
   --ifm-color-emphasis-100: rgba(255, 255, 255, 0.05);
@@ -133,9 +134,10 @@ html[data-theme='light'] {
 }
 
 .footer {
-  border-top: 1px solid var(--color-border-subtle);
+  border-top: none;
+  box-shadow: 0 -1px 0 var(--color-border-subtle);
   background: var(--ifm-footer-background-color);
-  color: var(--ifm-footer-link-color);
+  color: var(--ifm-footer-color);
   padding: 2rem 0 1.75rem;
 }
 
@@ -167,11 +169,11 @@ html[data-theme='light'] {
 }
 
 .footer .footer__title {
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-sm);
   color: var(--ifm-footer-title-color);
-  font-size: clamp(1.5rem, 1.35rem + 0.35vw, 1.8rem);
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--ifm-navbar-link-font-size);
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .footer .footer__items {
@@ -213,7 +215,7 @@ html[data-theme='light'] {
 .footer-foundation__description {
   margin: 1.7rem 0 0;
   max-width: 720px;
-  color: var(--ifm-footer-link-color);
+  color: var(--ifm-footer-color);
   font-size: var(--ifm-navbar-link-font-size);
   line-height: 1.52;
 }
@@ -226,7 +228,7 @@ html[data-theme='light'] {
 }
 
 .footer .footer__copyright {
-  color: var(--ifm-footer-link-color);
+  color: var(--ifm-footer-color);
   font-size: var(--ifm-navbar-link-font-size);
 }
 

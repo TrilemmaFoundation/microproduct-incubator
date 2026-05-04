@@ -65,6 +65,7 @@ const config: Config = {
     [
       'classic',
       {
+        debug: false,
         docs: {
           path: 'docs/core',
           sidebarPath: './sidebars.ts',
