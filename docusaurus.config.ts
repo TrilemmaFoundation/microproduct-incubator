@@ -104,12 +104,13 @@ const config: Config = {
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
     navbar: {
       logo: {
         alt: 'Trilemma Foundation',
-        src: 'img/trilemma_foundation.png',
+        src: 'img/trilemma_foundation_white.png',
         srcDark: 'img/trilemma_foundation_white.png',
         href: '/',
         height: 26,

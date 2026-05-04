@@ -4,6 +4,12 @@
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-dark) 0%,
+    var(--color-bg-primary) 42%,
+    var(--color-bg-primary) 100%
+  );
 }
 
 .container {
@@ -13,11 +19,13 @@
 
 .container h1 {
   margin-bottom: 1rem;
+  color: var(--color-text-primary);
 }
 
 .container p {
   margin-bottom: 2rem;
   font-size: 1.125rem;
+  color: var(--color-text-secondary);
 }
 
 .actions {
