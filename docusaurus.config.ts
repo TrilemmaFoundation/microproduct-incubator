@@ -102,6 +102,10 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       logo: {
         alt: 'Trilemma Foundation',
@@ -130,7 +134,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'light',
+      style: 'dark',
       links: [
         {
           className: 'footer-col--foundation',
