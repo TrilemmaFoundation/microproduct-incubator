@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const docsRoot = path.resolve('docs');
 const templatesRoot = path.resolve('templates');
+const productTemplatesRoot = path.resolve('product-templates');
 const requiredFields = ['title', 'description', 'last_reviewed'];
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -219,6 +220,7 @@ function validateShowcaseTable() {
 for (const [label, root] of [
   ['docs', docsRoot],
   ['templates', templatesRoot],
+  ['product-templates', productTemplatesRoot],
 ]) {
   if (!fs.existsSync(root)) {
     errors.push(`${label} directory does not exist`);

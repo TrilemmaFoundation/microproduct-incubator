@@ -1,0 +1,11 @@
+---
+title: benchmark-suite · Architecture
+description: Documentation fragment for starter benchmark-suite (bd0ae3ba33).
+last_reviewed: 2026-05-04
+---
+
+## Architecture
+
+- Frontend / API layers intentionally omitted—choose stack after threat modeling finishes.
+- Document external dependencies on `architecture.md` as they emerge.
+- Track critical failure modes + compensating controls here.

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
@@ -9,28 +10,28 @@ type HeroCta = {
 export type HeroProps = {
   title: string;
   description: string;
-  primaryCta: HeroCta;
-  secondaryCta: HeroCta;
+  actions: HeroCta[];
 };
 
-export default function Hero({
-  title,
-  description,
-  primaryCta,
-  secondaryCta,
-}: HeroProps) {
+export default function Hero({ title, description, actions }: HeroProps) {
   return (
     <main className={styles.hero}>
       <div className={styles.container}>
         <h1>{title}</h1>
         <p>{description}</p>
         <div className={styles.actions}>
-          <Link className="button button--primary button--lg" to={primaryCta.to}>
-            {primaryCta.label}
-          </Link>
-          <Link className="button button--secondary button--lg" to={secondaryCta.to}>
-            {secondaryCta.label}
-          </Link>
+          {actions.map((action, index) => (
+            <Link
+              key={`${action.label}-${action.to}`}
+              className={clsx(
+                'button button--lg',
+                index === 0 ? 'button--primary' : 'button--secondary',
+              )}
+              to={action.to}
+            >
+              {action.label}
+            </Link>
+          ))}
         </div>
       </div>
     </main>

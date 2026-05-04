@@ -14,6 +14,7 @@ module.exports = {
         tsconfig: {
           jsx: 'react-jsx',
           esModuleInterop: true,
+          resolveJsonModule: true,
         },
       },
     ],

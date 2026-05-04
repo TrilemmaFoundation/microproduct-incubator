@@ -1,11 +1,13 @@
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import { SITE_URL } from './siteUrl';
 
 const REPO_URL = 'https://github.com/TrilemmaFoundation/microproduct-incubator';
 
 const config: Config = {
-  title: 'Microproduct Incubator',
-  tagline: 'Focused apps that turn data into usable tools and real utility.',
+  title: 'Build Trilemma',
+  tagline:
+    'The AI-agent control panel for building microproducts—patterns, templates, standards, and a machine-readable registry.',
   favicon: 'img/favicon.ico',
 
   headTags: [
@@ -43,7 +45,7 @@ const config: Config = {
     },
   ],
 
-  url: 'https://microproducts.trilemma.foundation',
+  url: SITE_URL,
   baseUrl: '/',
 
   organizationName: 'TrilemmaFoundation',
@@ -100,6 +102,46 @@ const config: Config = {
         editUrl: `${REPO_URL}/edit/main/`,
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'agents',
+        path: 'docs/agents',
+        routeBasePath: 'agents',
+        sidebarPath: false,
+        editUrl: `${REPO_URL}/edit/main/`,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'templates',
+        path: 'docs/templates',
+        routeBasePath: 'templates',
+        sidebarPath: false,
+        editUrl: `${REPO_URL}/edit/main/`,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'archetypes',
+        path: 'docs/archetypes',
+        routeBasePath: 'archetypes',
+        sidebarPath: './sidebars.archetypes.ts',
+        editUrl: `${REPO_URL}/edit/main/`,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'standards',
+        path: 'docs/standards',
+        routeBasePath: 'standards',
+        sidebarPath: './sidebars.standards.ts',
+        editUrl: `${REPO_URL}/edit/main/`,
+      },
+    ],
   ],
 
   themeConfig: {
@@ -108,6 +150,16 @@ const config: Config = {
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
+    metadata: [
+      { property: 'og:title', content: 'Build Trilemma' },
+      {
+        property: 'og:description',
+        content:
+          'Canonical place to discover microproduct patterns, templates, build instructions, and a machine-readable product registry—for humans and AI agents.',
+      },
+      { property: 'og:url', content: SITE_URL },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
     navbar: {
       logo: {
         alt: 'Trilemma Foundation',
@@ -117,22 +169,20 @@ const config: Config = {
         height: 26,
       },
       items: [
+        { to: '/build', label: 'Build', position: 'left' },
+        { to: '/agents', label: 'Agents', position: 'left', activeBaseRegex: '^/agents/' },
+        { to: '/templates', label: 'Templates', position: 'left', activeBaseRegex: '^/templates/' },
+        { to: '/registry', label: 'Registry', position: 'left' },
+        { to: '/archetypes', label: 'Archetypes', position: 'left', activeBaseRegex: '^/archetypes/' },
+        { to: '/standards', label: 'Standards', position: 'left', activeBaseRegex: '^/standards/' },
         {
           to: '/docs/intro/what-is-a-microproduct',
           label: 'Docs',
           position: 'left',
           activeBaseRegex: '^/docs/',
         },
-        {
-          to: '/showcase',
-          label: 'Showcase',
-          position: 'left',
-        },
-        {
-          to: '/contribute',
-          label: 'Contribute',
-          position: 'left',
-        },
+        { to: '/showcase', label: 'Showcase', position: 'left', activeBaseRegex: '^/showcase/' },
+        { to: '/contribute', label: 'Contribute', position: 'left', activeBaseRegex: '^/contribute/' },
       ],
     },
     footer: {

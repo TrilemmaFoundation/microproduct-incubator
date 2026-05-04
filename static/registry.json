@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "canonical_url": "https://build.trilemma.foundation/registry.json",
+  "description": "Machine-readable registry of Trilemma and external microproducts.",
+  "products": [
+    {
+      "id": "stackingsats",
+      "name": "Stacking Sats",
+      "status": "active",
+      "maturity": 5,
+      "maturity_label": "maintained-product",
+      "scope": "trilemma",
+      "archetype": "simulation-backtesting-product",
+      "category": "bitcoin-analytics",
+      "problem": "Help users evaluate and improve Bitcoin accumulation strategies.",
+      "target_users": [
+        "bitcoin investors",
+        "quant researchers",
+        "student contributors"
+      ],
+      "primary_decision": "How should capital be allocated into Bitcoin over time?",
+      "inputs": [
+        "market data",
+        "on-chain data",
+        "strategy configuration"
+      ],
+      "outputs": [
+        "backtest results",
+        "strategy comparison",
+        "accumulation metrics"
+      ],
+      "repo": "https://github.com/TrilemmaFoundation/Bitcoin-Analytics-Initiative",
+      "site": "https://stackingsats.org",
+      "docs": "https://stackingsats.org/docs",
+      "agent_entrypoint": "https://build.trilemma.foundation/products/stackingsats/AGENTS.md",
+      "tags": ["bitcoin", "backtesting", "analytics", "dca"]
+    }
+  ]
+}

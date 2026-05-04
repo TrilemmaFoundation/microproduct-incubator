@@ -4,6 +4,12 @@
   "outputDirectory": "build",
   "redirects": [
     {
+      "source": "/:path*",
+      "destination": "https://build.trilemma.foundation/:path*",
+      "permanent": false,
+      "has": [{ "type": "host", "value": "microproducts.trilemma.foundation" }]
+    },
+    {
       "source": "/docs/showcase/microproducts",
       "destination": "/showcase",
       "permanent": true

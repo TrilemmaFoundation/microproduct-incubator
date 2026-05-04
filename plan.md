@@ -27,9 +27,13 @@ The site should become both:
 
 Not just docs. Not just a showcase. A build system control layer.
 
+Sections **1–10** of this document are implemented in the repository (verified 2026-05-04).
+
 ---
 
 # 1. Canonical site architecture
+
+**Status: Implemented (2026-05-04).**
 
 Recommended top-level structure:
 
@@ -89,6 +93,8 @@ Contribute
 
 # 2. Canonical config and redirect decision
 
+**Status: Implemented (2026-05-04).**
+
 Use:
 
 ```ts
@@ -129,6 +135,8 @@ Before that, use temporary **302 redirects** during staging/testing.
 ---
 
 # 3. Root `AGENTS.md`
+
+**Status: Implemented (2026-05-04).**
 
 Add this file at:
 
@@ -254,6 +262,8 @@ Avoid:
 
 # 4. Add `llms.txt` and `llms-full.txt`
 
+**Status: Implemented (2026-05-04).**
+
 ## `/llms.txt`
 
 This should be short and directional.
@@ -319,6 +329,8 @@ This file should be deterministic and regenerated on every build.
 ---
 
 # 5. Product registry
+
+**Status: Implemented (2026-05-04).**
 
 Add:
 
@@ -402,6 +414,8 @@ Example:
 ---
 
 # 6. Product metadata schema
+
+**Status: Implemented (2026-05-04).**
 
 Add:
 
@@ -527,6 +541,8 @@ Recommended schema:
 
 # 7. Standard microproduct folder contract
 
+**Status: Implemented (2026-05-04).**
+
 Every product should follow this shape:
 
 ```text
@@ -564,6 +580,8 @@ products/
 ---
 
 # 8. Microproduct maturity model
+
+**Status: Implemented (2026-05-04).**
 
 Use this across registry, docs, and contribution review.
 
@@ -605,6 +623,8 @@ Improve usability, complete missing docs, add tests, and identify MVP path.
 ---
 
 # 9. Microproduct archetypes
+
+**Status: Implemented (2026-05-04).**
 
 Create:
 
@@ -687,6 +707,8 @@ You are building a risk scoring microproduct. First identify the target user, th
 ---
 
 # 10. Templates
+
+**Status: Implemented (2026-05-04).**
 
 Create reusable starter templates:
 

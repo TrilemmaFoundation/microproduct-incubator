@@ -1,0 +1,12 @@
+---
+title: capstone-project · Agents
+description: Documentation fragment for starter capstone-project (16434736c0).
+last_reviewed: 2026-05-04
+---
+
+## Agents — Capstone starter kit
+
+- Archetype: `workflow-automation-product`
+- Keep documentation synchronized with runnable code weekly.
+- Never disable evaluation hooks before launch.
+- Reference schema: `/schemas/product.schema.json` on Build Trilemma.
