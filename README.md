@@ -1,4 +1,4 @@
-# Microproduct incubator (Build Trilemma)
+# Microproduct lab (Build Trilemma)
 
 This repository is the **Build Trilemma** site—patterns, templates, standards, registry, and playbooks for humans and AI agents—served from `https://build.trilemma.foundation`. Microproducts remain focused apps that turn data into usable tools and real utility.
 

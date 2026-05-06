@@ -40,4 +40,4 @@ Create a one-page brief containing:
 - Interview and validation playbooks for early demand testing.
 - Case studies of successful and failed ideation patterns.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

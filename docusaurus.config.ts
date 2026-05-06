@@ -2,7 +2,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { SITE_URL } from './siteUrl';
 
-const REPO_URL = 'https://github.com/TrilemmaFoundation/microproduct-incubator';
+const REPO_URL = 'https://github.com/TrilemmaFoundation/microproduct-lab';
 
 const config: Config = {
   title: 'Build Trilemma',
@@ -49,7 +49,7 @@ const config: Config = {
   baseUrl: '/',
 
   organizationName: 'TrilemmaFoundation',
-  projectName: 'microproduct-incubator',
+  projectName: 'microproduct-lab',
 
   onBrokenLinks: 'throw',
   markdown: {

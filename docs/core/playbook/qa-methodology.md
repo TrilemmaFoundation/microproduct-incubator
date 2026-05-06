@@ -42,4 +42,4 @@ Apply checks by risk tier:
 - Risk scoring models for release decisions.
 - Post-release quality review templates.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

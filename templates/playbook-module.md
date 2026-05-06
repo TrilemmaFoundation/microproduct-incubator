@@ -33,4 +33,4 @@ Common ways this phase fails and how to prevent them.
 
 - Add primary references.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

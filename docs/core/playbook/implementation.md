@@ -41,4 +41,4 @@ Translate validated scope into a reliable MVP through structured execution and t
 - Sprint and release rituals for high-velocity repos.
 - Examples of strong implementation task specs.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

@@ -42,4 +42,4 @@ Use a repeatable cycle:
 - Advanced insight framework: behavioral signals and product learning backlog.
 - Iteration framework: hypothesis, build, measure, decide.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

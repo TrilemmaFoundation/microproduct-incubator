@@ -17,4 +17,4 @@ The Microproduct Lab exists to help technical builders create useful tools that 
 
 Anyone can contribute through pull requests. Committee members review and curate quality for publication.
 
-Propose an improvement: [https://github.com/TrilemmaFoundation/microproduct-incubator/pulls](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+Propose an improvement: [https://github.com/TrilemmaFoundation/microproduct-lab/pulls](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)
