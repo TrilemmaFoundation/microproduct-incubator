@@ -42,10 +42,11 @@ describe('registryPresentation helpers', () => {
     expect(maturityLevelLabel(9)).toBe('Level 9');
   });
 
-  it('filters by status and substring tag queries', () => {
+  it('filters by status and broad search queries', () => {
     expect(filterProducts(sampleProducts, 'all', '').length).toBe(2);
     expect(filterProducts(sampleProducts, 'prototype', '').length).toBe(1);
     expect(filterProducts(sampleProducts, 'all', 'beta').length).toBe(1);
+    expect(filterProducts(sampleProducts, 'all', 'workflow').length).toBe(1);
     expect(filterProducts(sampleProducts, 'all', '')).toEqual(sampleProducts);
   });
 

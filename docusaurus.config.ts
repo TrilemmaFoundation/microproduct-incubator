@@ -169,20 +169,16 @@ const config: Config = {
         height: 26,
       },
       items: [
-        { to: '/build', label: 'Build', position: 'left' },
-        { to: '/agents', label: 'Agents', position: 'left', activeBaseRegex: '^/agents/' },
-        { to: '/templates', label: 'Templates', position: 'left', activeBaseRegex: '^/templates/' },
+        { to: '/', label: 'Start', position: 'left' },
         { to: '/registry', label: 'Registry', position: 'left' },
-        { to: '/archetypes', label: 'Archetypes', position: 'left', activeBaseRegex: '^/archetypes/' },
-        { to: '/standards', label: 'Standards', position: 'left', activeBaseRegex: '^/standards/' },
+        { to: '/schemas', label: 'Schemas', position: 'left' },
+        { to: '/build', label: 'Build', position: 'left' },
         {
           to: '/docs/intro/what-is-a-microproduct',
           label: 'Docs',
           position: 'left',
           activeBaseRegex: '^/docs/',
         },
-        { to: '/showcase', label: 'Showcase', position: 'left', activeBaseRegex: '^/showcase/' },
-        { to: '/contribute', label: 'Contribute', position: 'left', activeBaseRegex: '^/contribute/' },
       ],
     },
     footer: {

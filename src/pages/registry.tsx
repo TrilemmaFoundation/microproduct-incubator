@@ -12,157 +12,178 @@ import {
   maturityLevelLabel,
   PRODUCT_STATUSES,
 } from '../utils/registryPresentation';
+import {
+  CommandBlock,
+  MetadataPill,
+  PageSection,
+} from '../components/ControlSurface';
 
 const manifest = registryManifest as RegistryManifest;
 
 export default function RegistryPage() {
   const [status, setStatus] = useState<ProductStatus | 'all'>('all');
-  const [tag, setTag] = useState('');
+  const [query, setQuery] = useState('');
   const filtered = useMemo(
-    () => filterProducts(manifest.products, status, tag),
-    [status, tag],
+    () => filterProducts(manifest.products, status, query),
+    [status, query],
   );
   const tagBank = useMemo(() => collectTags(manifest.products), []);
+  const machineArtifactSummary = `registry: ${SITE_URL}/registry.json\nschema: ${SITE_URL}/schemas/product.schema.json`;
 
   return (
     <Layout title="Registry" description={manifest.description}>
-      <main className="container margin-vert--lg markdown">
-        <Heading as="h1">Microproduct registry</Heading>
-        <p>{manifest.description}</p>
-        <p>
-          Machine-readable source:{' '}
-          <a href={`${SITE_URL}/registry.json`}>registry.json</a>
-          {' · '}
-          Schema reference:{' '}
-          <a href={`${SITE_URL}/schemas/product.schema.json`}>product.schema.json</a>
-        </p>
-
-        <div className="margin-bottom--md" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-          <label>
-            Status&nbsp;
-            <select
-              aria-label="Filter by status"
-              className="margin-left--xs"
-              value={status}
-              onChange={(event) =>
-                setStatus(event.target.value as ProductStatus | 'all')
-              }
-            >
-              <option value="all">All statuses</option>
-              {PRODUCT_STATUSES.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Tag contains&nbsp;
-            <input
-              aria-label="Filter by tag substring"
-              className="margin-left--xs"
-              placeholder="e.g. bitcoin"
-              value={tag}
-              onChange={(event) => setTag(event.target.value)}
-            />
-          </label>
-        </div>
-
-        {tagBank.length > 0 && (
-          <p className="text--secondary">
-            Quick tag bank:{' '}
-            {tagBank.map((value) => (
-              <button
-                type="button"
-                key={value}
-                className="badge badge--secondary margin-right--xs"
-                onClick={() => setTag(value)}
-              >
-                {value}
-              </button>
-            ))}
-          </p>
-        )}
-
-        <div className="margin-top--lg">
-          {filtered.map((product) => (
-            <article key={product.id} className="card margin-bottom--md">
-              <div className="card__body">
-                <Heading as="h2" id={product.id}>
-                  {product.name}
-                </Heading>
-                <p className="text--muted text--italic">
-                  {product.id} · {product.archetype} · {product.scope}
-                </p>
-                <p>
-                  <strong>Problem:</strong> {product.problem}
-                </p>
-                <p>
-                  <strong>Primary decision:</strong> {product.primary_decision}
-                </p>
-                <p>
-                  <strong>Status:</strong> {product.status} ·{' '}
-                  <strong>Maturity:</strong> {product.maturity} (
-                  {maturityLevelLabel(product.maturity)}
-                  {product.maturity_label ? ` · ${product.maturity_label}` : ''})
-                </p>
-                <p>
-                  <strong>Target users:</strong> {product.target_users.join(', ')}
-                </p>
-                <p>
-                  <strong>Inputs:</strong> {product.inputs.join(', ')}
-                </p>
-                <p>
-                  <strong>Outputs:</strong> {product.outputs.join(', ')}
-                </p>
-                <p>
-                  <strong>Tags:</strong>{' '}
-                  {product.tags.map((token) => (
-                    <span key={token} className="badge badge--primary margin-right--xs">
-                      {token}
-                    </span>
-                  ))}
-                </p>
-                <ul>
-                  {product.repo && (
-                    <li>
-                      Repo:{' '}
-                      <Link href={product.repo} rel="noreferrer noopener">
-                        {product.repo}
-                      </Link>
-                    </li>
-                  )}
-                  {product.site && (
-                    <li>
-                      Site:{' '}
-                      <Link href={product.site} rel="noreferrer noopener">
-                        {product.site}
-                      </Link>
-                    </li>
-                  )}
-                  {product.docs && (
-                    <li>
-                      Docs:{' '}
-                      <Link href={product.docs} rel="noreferrer noopener">
-                        {product.docs}
-                      </Link>
-                    </li>
-                  )}
-                  {product.agent_entrypoint && (
-                    <li>
-                      Agent instructions:{' '}
-                      <Link href={product.agent_entrypoint}>{product.agent_entrypoint}</Link>
-                    </li>
-                  )}
-                </ul>
+      <main className="bt-shell">
+        <div className="bt-page">
+          <PageSection
+            eyebrow="Registry"
+            title="Microproduct registry"
+            description={manifest.description}
+            variant="hero"
+          >
+            <div className="bt-registry-header-grid">
+              <div className="bt-filter-panel">
+                <div className="bt-filter-head">
+                  <div>
+                    <Heading as="h3" className="bt-filter-title">
+                      Search and filter
+                    </Heading>
+                    <p className="bt-filter-copy">
+                      Narrow results by status or search across name, tags, archetype, scope, and problem statement.
+                    </p>
+                  </div>
+                  <MetadataPill tone="accent">{filtered.length} result{filtered.length === 1 ? '' : 's'}</MetadataPill>
+                </div>
+                <div className="bt-filter-grid">
+                  <label className="bt-field">
+                    <span>Status</span>
+                    <select
+                      aria-label="Filter by status"
+                      value={status}
+                      onChange={(event) =>
+                        setStatus(event.target.value as ProductStatus | 'all')
+                      }
+                    >
+                      <option value="all">All statuses</option>
+                      {PRODUCT_STATUSES.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="bt-field bt-fieldWide">
+                    <span>Search registry</span>
+                    <input
+                      aria-label="Search registry"
+                      placeholder="Search tags, names, archetypes, or problems"
+                      value={query}
+                      onChange={(event) => setQuery(event.target.value)}
+                    />
+                  </label>
+                </div>
+                <div className="bt-filter-actions">
+                  <button
+                    type="button"
+                    className="bt-secondary-button"
+                    onClick={() => {
+                      setStatus('all');
+                      setQuery('');
+                    }}
+                  >
+                    Reset filters
+                  </button>
+                  <p className="bt-filter-state">
+                    {status === 'all' && !query
+                      ? 'Showing the full registry.'
+                      : `Showing ${filtered.length} filtered result${filtered.length === 1 ? '' : 's'}.`}
+                  </p>
+                </div>
+                {tagBank.length > 0 && (
+                  <div className="bt-tag-bank">
+                    {tagBank.map((value) => (
+                      <button
+                        type="button"
+                        key={value}
+                        className="bt-chip-button"
+                        onClick={() => setQuery(value)}
+                      >
+                        {value}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
-            </article>
-          ))}
-        </div>
+              <CommandBlock
+                label="Machine-readable endpoints"
+                value={machineArtifactSummary}
+                language="text"
+              />
+            </div>
+          </PageSection>
 
-        {filtered.length === 0 && (
-          <p className="alert alert--warning">No entries match those filters.</p>
-        )}
+          <section className="bt-registry-grid" aria-label="Registry results">
+            {filtered.map((product) => (
+              <article key={product.id} className="bt-registry-card">
+                <div className="bt-registry-cardHeader">
+                  <div>
+                    <Heading as="h2" id={product.id} className="bt-registry-name">
+                      {product.name}
+                    </Heading>
+                    <p className="bt-registry-meta">{product.id}</p>
+                  </div>
+                  <div className="bt-inline-pills bt-inline-pillsCompact">
+                    <MetadataPill tone="accent">{product.status}</MetadataPill>
+                    <MetadataPill>{product.scope}</MetadataPill>
+                    <MetadataPill>{product.archetype}</MetadataPill>
+                  </div>
+                </div>
+                <p className="bt-registry-problem">{product.problem}</p>
+                <div className="bt-registry-detailGrid">
+                  <div>
+                    <span className="bt-registry-label">Primary decision</span>
+                    <p>{product.primary_decision}</p>
+                  </div>
+                  <div>
+                    <span className="bt-registry-label">Maturity</span>
+                    <p>
+                      {product.maturity} ({maturityLevelLabel(product.maturity)}
+                      {product.maturity_label ? ` · ${product.maturity_label}` : ''})
+                    </p>
+                  </div>
+                </div>
+                <div className="bt-inline-pills bt-inline-pillsCompact">
+                  {product.tags.map((token) => (
+                    <MetadataPill key={token}>{token}</MetadataPill>
+                  ))}
+                </div>
+                <div className="bt-registry-links">
+                  {product.repo ? (
+                    <Link href={product.repo} rel="noreferrer noopener">
+                      Repo
+                    </Link>
+                  ) : null}
+                  {product.site ? (
+                    <Link href={product.site} rel="noreferrer noopener">
+                      Site
+                    </Link>
+                  ) : null}
+                  {product.docs ? (
+                    <Link href={product.docs} rel="noreferrer noopener">
+                      Docs
+                    </Link>
+                  ) : null}
+                  {product.agent_entrypoint ? (
+                    <Link href={product.agent_entrypoint}>Agent entrypoint</Link>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </section>
+
+          {filtered.length === 0 && (
+            <p className="alert alert--warning">No entries match those filters.</p>
+          )}
+        </div>
       </main>
     </Layout>
   );

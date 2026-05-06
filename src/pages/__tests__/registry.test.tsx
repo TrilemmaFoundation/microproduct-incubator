@@ -52,7 +52,8 @@ describe('RegistryPage', () => {
     expect(screen.getByRole('heading', { name: 'Microproduct registry' })).toBeInTheDocument();
     expect(screen.getByText('Alpha')).toBeInTheDocument();
     expect(screen.getByText('Beta')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'https://example.com/docs-alpha' })).toBeInTheDocument();
+    expect(screen.getByText('2 results')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Docs' })).toBeInTheDocument();
   });
 
   it('filters products by status', () => {
@@ -70,14 +71,22 @@ describe('RegistryPage', () => {
     expect(screen.getByText('No entries match those filters.')).toBeInTheDocument();
   });
 
-  it('filters tags via text input and quick buttons', () => {
+  it('filters via search and quick tag buttons', () => {
     render(<RegistryPage />);
-    const input = screen.getByLabelText('Filter by tag substring');
+    const input = screen.getByLabelText('Search registry');
     fireEvent.change(input, { target: { value: 'fin' } });
     expect(screen.getByText('Alpha')).toBeInTheDocument();
     expect(screen.queryByText('Beta')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'finance' }));
     expect((input as HTMLInputElement).value).toBe('finance');
+  });
+
+  it('resets filters back to the full registry', () => {
+    render(<RegistryPage />);
+    fireEvent.change(screen.getByLabelText('Filter by status'), { target: { value: 'idea' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Reset filters' }));
+    expect(screen.getByText('Showing the full registry.')).toBeInTheDocument();
+    expect(screen.getByText('2 results')).toBeInTheDocument();
   });
 });

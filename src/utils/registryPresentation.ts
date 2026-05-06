@@ -27,20 +27,32 @@ export function maturityLevelLabel(level: number): string {
 export function filterProducts(
   products: RegistryProduct[],
   status: ProductStatus | 'all',
-  tagQuery: string,
+  query: string,
 ): RegistryProduct[] {
-  const tag = tagQuery.trim().toLowerCase();
+  const normalizedQuery = query.trim().toLowerCase();
 
   return products.filter((product) => {
     if (status !== 'all' && product.status !== status) {
       return false;
     }
 
-    if (!tag) {
+    if (!normalizedQuery) {
       return true;
     }
 
-    return product.tags.some((t) => t.toLowerCase().includes(tag));
+    const searchableFields = [
+      product.id,
+      product.name,
+      product.archetype,
+      product.scope,
+      product.problem,
+      product.primary_decision,
+      ...product.tags,
+    ];
+
+    return searchableFields.some((field) =>
+      field.toLowerCase().includes(normalizedQuery),
+    );
   });
 }
 
