@@ -48,6 +48,6 @@
     "@tootallnate/once": "^3.0.1"
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=22.18.0"
   }
 }

@@ -14,7 +14,7 @@ This repository is an open knowledge hub to help builders learn, contribute, and
 
 ## Local Development
 
-Requires Node.js 20 or newer.
+Requires Node.js 22.18 or newer.
 
 ```bash
 npm install
