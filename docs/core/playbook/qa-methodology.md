@@ -1,13 +1,89 @@
 ---
 title: QA Methodology
-description: Phase 2 QA track for validating agent-assisted builds and controlling repository entropy.
+description: Phase 2 QA track for validating agent-assisted builds and ensuring progress.
 tags: [playbook, qa]
-last_reviewed: 2026-03-05
+last_reviewed: 2026-05-06
 ---
 
 ## QA Track in Implementation Phase
 
-QA is a dedicated track inside Phase 2, not a post-build afterthought. Its purpose is to ensure fast execution still produces reliable outcomes.
+Delivering high-quality microproducts to users requires effort in ideation,
+implementation, and operation. This guide focuses on the implementation phase,
+where QA enables fast execution without sacrificing reliability. QA is a dedicated
+track inside Phase 2, not a post-build afterthought. Its purpose is to create
+effective feedback loops, prevent regression, and support timely delivery of a
+product that meets or exceeds initial expectations.
+
+## Disclaimer
+
+Like much of the content in this knowledge base, our QA guidelines and templates
+do not prescribe a single doctrine or toolchain. Instead, they consolidate
+lessons from other microproducts into opinionated defaults: guiding principles,
+reference architecture, and pragmatic best practices. This is a working document,
+and we welcome alternatives and improvements through contributions.
+
+## QA Philosophy
+
+We draw inspiration from successful engineering organizations and adapt ideas
+from shift-left testing, continuous testing, and behavior-driven development
+(BDD) to the realities of modern AI-assisted microproduct development.
+
+Our quality assurance methodology has the following characteristics:
+
+1. [Practical Software Design](#practical-software-design)
+2. [Automation](#automation)
+3. [Thoughtful Quality Gates & Feedback Mechanisms](#thoughtful-quality-gates--feedback-mechanisms)
+
+Which are explored further below.
+
+### Practical Software Design
+
+Low coupling, deep vertical slices, and intentional project organization promote
+effective testing and visibility.
+
+Applying software design principles is critical to making a project testable and
+allowing it to grow in a way that avoids regressions and remains legible to
+stakeholders.
+
+Independent components, often organized as vertical slices, make it easier to
+reason about where business rules and behaviors live in the system. They also
+help agents build or extend capabilities without affecting unrelated areas.
+
+Building small pieces of functionality end to end also ensures incremental
+progress and allows testing and feedback at each step. This does not strictly
+require UI-to-database slices; a helper class with a clear purpose and a test
+suite that expresses business requirements is equally valuable. Such classes
+should be treated as first-class components of the system.
+
+Well-designed systems embrace business-domain concepts and terminology in their
+specifications, tests, and documentation. Dependencies between modules should be
+apparent to domain experts.
+
+### Automation
+
+Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate
+rapid development as the codebase and feature set grow.
+
+### Thoughtful Quality Gates & Feedback Mechanisms
+
+Deterministic checks at specific points in the change lifecycle give useful
+signals to agents and human reviewers, balancing correctness with development
+friction.
+
+There are several good points in the change lifecycle to install quality checks,
+including:
+
+- Agent loop (run on each message or code change)
+- Human QA check (feature branch)
+- Pre-commit/pre-push hooks
+- Pull request
+- CI/CD pipeline
+- Release
+
+Static analysis tools, tests, and automated code review are invaluable for
+keeping project quality and entropy in check. The right toolset and enforcement
+points vary by team and project, but choosing them deliberately is part of the
+transition from prototype to product.
 
 ## Agent-Assisted Testing Guidance
 
