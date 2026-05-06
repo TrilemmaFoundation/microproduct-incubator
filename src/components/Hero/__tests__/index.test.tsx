@@ -6,8 +6,10 @@ describe('Hero component', () => {
   const defaultProps = {
     title: 'Test Title',
     description: 'Test Description',
-    primaryCta: { label: 'Primary', to: '/primary' },
-    secondaryCta: { label: 'Secondary', to: '/secondary' },
+    actions: [
+      { label: 'Primary', to: '/primary' },
+      { label: 'Secondary', to: '/secondary' },
+    ],
   };
 
   it('renders title and description', () => {
@@ -19,11 +21,9 @@ describe('Hero component', () => {
   it('renders call-to-action links', () => {
     render(<Hero {...defaultProps} />);
     const primaryLink = screen.getByText('Primary');
-    expect(primaryLink).toBeInTheDocument();
     expect(primaryLink.closest('a')).toHaveAttribute('href', '/primary');
 
     const secondaryLink = screen.getByText('Secondary');
-    expect(secondaryLink).toBeInTheDocument();
     expect(secondaryLink.closest('a')).toHaveAttribute('href', '/secondary');
   });
 });

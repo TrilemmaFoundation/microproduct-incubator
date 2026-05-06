@@ -14,6 +14,7 @@ module.exports = {
         tsconfig: {
           jsx: 'react-jsx',
           esModuleInterop: true,
+          resolveJsonModule: true,
         },
       },
     ],
@@ -28,6 +29,9 @@ module.exports = {
     '!src/**/*.d.ts',
     '!src/__mocks__/**',
     '!src/**/__tests__/**',
+    '!src/components/UniversityMarquee/**',
+    '!src/theme/**',
+    '!src/constants/**',
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],

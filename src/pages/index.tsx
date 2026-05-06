@@ -4,20 +4,18 @@ import Hero from '../components/Hero';
 export default function Home() {
   return (
     <Layout
-      title="Microproduct Lab"
-      description="An open knowledge hub for building microproducts"
+      title="Build Trilemma"
+      description="Discover patterns, scaffold microproducts, and validate submissions — for humans and AI agents."
     >
       <Hero
-        title="Microproduct Lab"
-        description="Open Knowledge Hub to learn, develop, and contribute insights for building focused apps."
-        primaryCta={{
-          label: 'Learn',
-          to: '/docs/intro/what-is-a-microproduct',
-        }}
-        secondaryCta={{
-          label: 'Contribute',
-          to: '/contribute',
-        }}
+        title="Build Microproducts"
+        description="The AI-agent control panel for microproducts: archetypes to lean on, standards to uphold, starters to fork, registries bots can ingest, and playbooks teammates can audit."
+        actions={[
+          { label: 'Registry', to: '/registry' },
+          { label: 'Agents', to: '/agents' },
+          { label: 'Build', to: '/build' },
+          { label: 'Standards', to: '/standards' },
+        ]}
       />
     </Layout>
   );

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://build.trilemma.foundation/schemas/product.schema.json",
+  "title": "Build Trilemma Product Metadata",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "status",
+    "maturity",
+    "scope",
+    "archetype",
+    "problem",
+    "target_users",
+    "primary_decision",
+    "inputs",
+    "outputs",
+    "tags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "idea",
+        "spec",
+        "prototype",
+        "mvp",
+        "showcase",
+        "active",
+        "archived"
+      ]
+    },
+    "maturity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "maturity_label": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["trilemma", "external", "community"]
+    },
+    "archetype": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "string"
+    },
+    "target_users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_decision": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "site": {
+      "type": "string",
+      "format": "uri"
+    },
+    "docs": {
+      "type": "string",
+      "format": "uri"
+    },
+    "agent_entrypoint": {
+      "type": "string",
+      "format": "uri"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

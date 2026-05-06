@@ -27,4 +27,4 @@ Establish whether a microproduct is worth building and feasible to deliver befor
 - [Ideation](./ideation.md): define demand, data availability, and minimum useful outcome.
 - [Architecture](./architecture.md): pick a modern data pipeline and justify key system decisions.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

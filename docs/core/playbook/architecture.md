@@ -60,4 +60,4 @@ Produce a brief that includes:
 For orchestration, transformation, and analytics storage decisions, continue with
 [Data Stack & Analytics Engineering](/docs/playbook/data-stack-analytics-engineering).
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

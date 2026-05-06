@@ -1,0 +1,22 @@
+# Build Trilemma
+
+Build Trilemma is the AI-agent control panel for building microproducts, inside or outside Trilemma Foundation.
+
+Canonical URL:
+https://build.trilemma.foundation
+
+Core resources:
+- Agent instructions: /AGENTS.md
+- Product registry: /registry.json
+- Templates: /templates
+- Archetypes: /archetypes
+- Standards: /standards
+- Contribution guide: /contribute
+- Product schema: /schemas/product.schema.json
+- Full context: /llms-full.txt
+
+Primary task:
+Help humans and AI agents design, scaffold, validate, and ship focused microproducts.
+
+Microproduct definition:
+A microproduct is a focused software tool that turns data, models, workflows, or domain knowledge into usable utility for a specific user decision or task.

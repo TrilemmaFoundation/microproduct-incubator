@@ -2,32 +2,32 @@
 title: QA Methodology
 description: Phase 2 QA track for validating agent-assisted builds and ensuring progress.
 tags: [playbook, qa]
-last_reviewed: 2026-03-18
+last_reviewed: 2026-05-06
 ---
 
 ## QA Track in Implementation Phase
-Delivering high-quality microproducts to users requires effort in the ideation,
-implementation and operation of the software. Here, we focus on shaping key
-aspects and milestones in the implementation phase to enable fast execution while
-producing reliable outcomes. QA is a dedicated track inside Phase 2, not a post-
-build afterthought. Its purpose is not to introduce friction into the SDLC, but
-rather to create effective feedback loops, facilitate progress without regression,
-and allow timely delivery of a product that matches or exceeds initial expectations.
 
+Delivering high-quality microproducts to users requires effort in ideation,
+implementation, and operation. This guide focuses on the implementation phase,
+where QA enables fast execution without sacrificing reliability. QA is a dedicated
+track inside Phase 2, not a post-build afterthought. Its purpose is to create
+effective feedback loops, prevent regression, and support timely delivery of a
+product that meets or exceeds initial expectations.
 
 ## Disclaimer
-Like much of the content in this knowledge-base, our guidelines and templates for
-QA do not follow or prescribe any one doctrine or set of tools. However, we use
-these to consolidate tailored learnings from work on other microproducts and
-share opinionated defaults in the form of guiding principles, reference architecture,
-and best practices. We consider this a working document, and welcome variants of
-the suggested methodology as well as improvements through contributions.
+
+Like much of the content in this knowledge base, our QA guidelines and templates
+do not prescribe a single doctrine or toolchain. Instead, they consolidate
+lessons from other microproducts into opinionated defaults: guiding principles,
+reference architecture, and pragmatic best practices. This is a working document,
+and we welcome alternatives and improvements through contributions.
 
 ## QA Philosophy
-We draw inspiration from some of the most successful tech companies (Google, Amazon)
-and incorporate ideas from processes like 'Shift-Left', Continuous Testing and
-Behaviour-Driven Development (BDD) while adapting them to meet the needs of
-microproduct development in our modern, AI-assisted era.
+
+We draw inspiration from successful engineering organizations and adapt ideas
+from shift-left testing, continuous testing, and behavior-driven development
+(BDD) to the realities of modern AI-assisted microproduct development.
+
 Our quality assurance methodology has the following characteristics:
 
 1. [Practical Software Design](#practical-software-design)
@@ -37,47 +37,53 @@ Our quality assurance methodology has the following characteristics:
 Which are explored further below.
 
 ### Practical Software Design
-*Low-coupling, deep vertical slices, and intentional project organization promote effective testing and visibility*
 
-While it may seem like a separate domain, applying software design principles is
-critical to making a project testable and allowing it to grow in a way that
-avoids regressions and that all stakeholders understand.
+Low coupling, deep vertical slices, and intentional project organization promote
+effective testing and visibility.
 
-Independent components (we like vertical slices, but this is not required) with
-clear and minimal dependencies allow humans to reason easily about where certain
-business rules or behaviours reside in the system, and makes it easier for agents
-to build or extend capabilities without affecting the others.
+Applying software design principles is critical to making a project testable and
+allowing it to grow in a way that avoids regressions and remains legible to
+stakeholders.
 
-Furthermore, building small bits of functionality from end-to-end ensures that
-we make incremental progress and can test and provide feedback each step of the way.
-This does not strictly require UI->DB slices - a helper class with a clear purpose
-and suite of tests that express business requirements is equally powerful. Such
-classes is treated as a first-class component of the system.
+Independent components, often organized as vertical slices, make it easier to
+reason about where business rules and behaviors live in the system. They also
+help agents build or extend capabilities without affecting unrelated areas.
 
-Well-designed systems embrace business domain concepts and terminology, using
-these to describe what software does in specifications, tests and documentation.
-Dependencies between modules should be apparent to domain experts.
+Building small pieces of functionality end to end also ensures incremental
+progress and allows testing and feedback at each step. This does not strictly
+require UI-to-database slices; a helper class with a clear purpose and a test
+suite that expresses business requirements is equally valuable. Such classes
+should be treated as first-class components of the system.
+
+Well-designed systems embrace business-domain concepts and terminology in their
+specifications, tests, and documentation. Dependencies between modules should be
+apparent to domain experts.
 
 ### Automation
-*Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate rapid development with a growing codebase and feature set*
+
+Automated tests, CI/CD pipelines, and other AI-assisted workflows facilitate
+rapid development as the codebase and feature set grow.
 
 ### Thoughtful Quality Gates & Feedback Mechanisms
-*Deterministic checks at specific points in the change lifecycle give information to agents and human reviewers, balancing correctness with development friction*
 
-There are a number of key places to hook in an install quality checks, including
-but not limited to:
+Deterministic checks at specific points in the change lifecycle give useful
+signals to agents and human reviewers, balancing correctness with development
+friction.
+
+There are several good points in the change lifecycle to install quality checks,
+including:
+
 - Agent loop (run on each message or code change)
 - Human QA check (feature branch)
 - Pre-commit/pre-push hooks
-- Pull-request
+- Pull request
 - CI/CD pipeline
 - Release
 
-Using static analysis tools (linters, type-checkers), tests, and automated code
-review are invaluable for keeping the quality and 'entropy' of the project in
-check. Choosing the right tools and where and when to deploy them is specific to
-every team and project, but a key part of growing from prototyping to product.
-
+Static analysis tools, tests, and automated code review are invaluable for
+keeping project quality and entropy in check. The right toolset and enforcement
+points vary by team and project, but choosing them deliberately is part of the
+transition from prototype to product.
 
 ## Agent-Assisted Testing Guidance
 
@@ -112,4 +118,4 @@ Apply checks by risk tier:
 - Risk scoring models for release decisions.
 - Post-release quality review templates.
 
-[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-incubator/pulls)
+[Propose an improvement](https://github.com/TrilemmaFoundation/microproduct-lab/pulls)

@@ -49,6 +49,8 @@ function setupFixture(missionFrontmatter: string) {
     ),
   );
 
+  fs.mkdirSync(path.join(fixtureDir, 'product-templates'), { recursive: true });
+
   return fixtureDir;
 }
 

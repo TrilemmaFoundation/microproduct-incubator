@@ -1,0 +1,23 @@
+id: dashboard-to-tool
+name: Dashboard to tool starter
+status: spec
+maturity: 1
+maturity_label: spec
+scope: community
+archetype: data-to-decision-tool
+problem: >-
+  Starter repo that needs you to articulate the narrowly scoped wedge for this archetype before coding widens scope.
+target_users:
+  - contributor teams
+  - incubator cohorts
+primary_decision: >-
+  Confirm this template aligns with the archetype before investing additional engineering cycles.
+inputs:
+  - placeholder datasets
+  - documentation artifacts
+outputs:
+  - prototype deliverable artifacts
+  - evaluation notes
+tags:
+  - template
+  - dashboard_to_tool
