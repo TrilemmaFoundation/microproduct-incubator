@@ -1,15 +1,3 @@
-.shell {
-  min-height: calc(100vh - 60px);
-}
-
-.page {
-  width: min(1200px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 3.5rem 0 4.5rem;
-  display: grid;
-  gap: 4rem;
-}
-
 .section {
   display: grid;
   gap: 1.5rem;
@@ -46,21 +34,6 @@
   line-height: 1.65;
 }
 
-.surfaceGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-  align-items: start;
-}
-
-.surfaceGridOne {
-  grid-template-columns: 1fr;
-}
-
-.surfaceGridThree {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .panel {
   border: 1px solid var(--color-border-subtle-strong);
   border-radius: 24px;
@@ -69,12 +42,6 @@
     var(--color-surface-elevated);
   box-shadow: var(--ifm-global-shadow-md);
   overflow: hidden;
-}
-
-.surfacePanel {
-  display: grid;
-  gap: 1rem;
-  padding: 1.3rem;
 }
 
 .panelBody {
@@ -97,49 +64,6 @@
 .cardAside {
   border-top: 1px solid var(--color-border-subtle);
   padding: 1rem 1.35rem 1.35rem;
-}
-
-.summaryCard {
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1.25rem;
-}
-
-.summaryTitle {
-  margin-bottom: 0.65rem;
-  font-size: 1.1rem;
-}
-
-.summaryDescription {
-  margin: 0;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-}
-
-.linkCard {
-  display: grid;
-  gap: 0.35rem;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  color: inherit;
-  text-decoration: none;
-  padding: 1.15rem 1.2rem;
-}
-
-.linkCard strong {
-  font-size: 1rem;
-}
-
-.linkCard span {
-  color: var(--color-text-secondary);
-  line-height: 1.55;
-}
-
-.linkCard:hover {
-  text-decoration: none;
-  border-color: rgba(255, 148, 56, 0.28);
 }
 
 .actionList {
@@ -227,16 +151,6 @@
   border-color: rgba(255, 148, 56, 0.28);
   background: rgba(255, 148, 56, 0.12);
   color: var(--color-text-primary);
-}
-
-.inlineGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.inlineGroupCompact {
-  gap: 0.45rem;
 }
 
 .commandBlock {
@@ -332,15 +246,6 @@
 }
 
 @media (max-width: 996px) {
-  .page {
-    gap: 3rem;
-  }
-
-  .surfaceGrid,
-  .surfaceGridThree {
-    grid-template-columns: 1fr;
-  }
-
   .actionRow {
     flex-direction: column;
   }
@@ -352,12 +257,6 @@
 }
 
 @media (max-width: 640px) {
-  .page {
-    width: min(100% - 1.25rem, 1200px);
-    padding-top: 2.5rem;
-    padding-bottom: 3.5rem;
-  }
-
   .stepItem {
     grid-template-columns: 1fr;
   }

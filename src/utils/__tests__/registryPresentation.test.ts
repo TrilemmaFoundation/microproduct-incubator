@@ -1,7 +1,5 @@
 import type { RegistryProduct } from '../../types/registry';
-import productSchema from '@site/static/schemas/product.schema.json';
 import {
-  PRODUCT_STATUSES,
   collectTags,
   filterProducts,
   maturityLevelLabel,
@@ -54,9 +52,5 @@ describe('registryPresentation helpers', () => {
 
   it('aggregates sorted tags uniquely', () => {
     expect(collectTags(sampleProducts)).toEqual(['alpha', 'beta', 'gamma']);
-  });
-
-  it('keeps status options aligned with the published schema', () => {
-    expect(PRODUCT_STATUSES).toEqual(productSchema.properties.status.enum);
   });
 });

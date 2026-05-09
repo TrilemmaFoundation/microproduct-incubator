@@ -39,8 +39,11 @@ if (!registry || typeof registry !== 'object') {
   ) {
     errors.push('registry.json: canonical_url mismatch (expected canonical build URL).');
   }
-  if (typeof registry.description !== 'string' || registry.description.trim() === '') {
-    errors.push('registry.json: description must be a non-empty string.');
+  if (
+    registry.description !==
+    'Machine-readable registry of Trilemma and external microproducts.'
+  ) {
+    errors.push('registry.json: description must match canonical copy.');
   }
   if (!Array.isArray(registry.products)) {
     errors.push('registry.json: products must be an array.');

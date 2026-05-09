@@ -50,41 +50,6 @@ type StepItemProps = {
   outcome?: string;
 };
 
-type PageShellProps = {
-  children: ReactNode;
-  after?: ReactNode;
-  className?: string;
-};
-
-type SurfaceGridProps = {
-  children: ReactNode;
-  columns?: 1 | 2 | 3;
-  className?: string;
-};
-
-type SummaryCardProps = {
-  title: string;
-  description: string;
-};
-
-type LinkCardProps = {
-  title: string;
-  description: string;
-  to?: string;
-  href?: string;
-};
-
-type SurfacePanelProps = {
-  children: ReactNode;
-  className?: string;
-};
-
-type InlineGroupProps = {
-  children: ReactNode;
-  compact?: boolean;
-  className?: string;
-};
-
 export function copyToClipboard(value: string) {
   if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
     void navigator.clipboard.writeText(value);
@@ -140,15 +105,6 @@ function CopyButton({
   );
 }
 
-export function PageShell({children, after, className}: PageShellProps) {
-  return (
-    <main className={clsx(styles.shell, className)}>
-      <div className={styles.page}>{children}</div>
-      {after}
-    </main>
-  );
-}
-
 export function PageSection({
   eyebrow,
   title,
@@ -175,29 +131,6 @@ export function PageSection({
       {children}
     </section>
   );
-}
-
-export function SurfaceGrid({
-  children,
-  columns = 2,
-  className,
-}: SurfaceGridProps) {
-  return (
-    <div
-      className={clsx(
-        styles.surfaceGrid,
-        columns === 1 && styles.surfaceGridOne,
-        columns === 3 && styles.surfaceGridThree,
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function SurfacePanel({children, className}: SurfacePanelProps) {
-  return <div className={clsx(styles.panel, styles.surfacePanel, className)}>{children}</div>;
 }
 
 export function ActionCard({
@@ -250,45 +183,6 @@ export function ActionCard({
   );
 }
 
-export function SummaryCard({title, description}: SummaryCardProps) {
-  return (
-    <article className={styles.summaryCard}>
-      <Heading as="h3" className={styles.summaryTitle}>
-        {title}
-      </Heading>
-      <p className={styles.summaryDescription}>{description}</p>
-    </article>
-  );
-}
-
-export function LinkCard({
-  title,
-  description,
-  to,
-  href,
-}: LinkCardProps) {
-  const content = (
-    <>
-      <strong>{title}</strong>
-      <span>{description}</span>
-    </>
-  );
-
-  if (href) {
-    return (
-      <Link className={styles.linkCard} href={href}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <Link className={styles.linkCard} to={to ?? '/'}>
-      {content}
-    </Link>
-  );
-}
-
 export function MetadataPill({
   children,
   tone = 'default',
@@ -299,24 +193,6 @@ export function MetadataPill({
     >
       {children}
     </span>
-  );
-}
-
-export function InlineGroup({
-  children,
-  compact = false,
-  className,
-}: InlineGroupProps) {
-  return (
-    <div
-      className={clsx(
-        styles.inlineGroup,
-        compact && styles.inlineGroupCompact,
-        className,
-      )}
-    >
-      {children}
-    </div>
   );
 }
 

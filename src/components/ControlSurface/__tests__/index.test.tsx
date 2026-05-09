@@ -4,15 +4,9 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import {
   ActionCard,
   CommandBlock,
-  InlineGroup,
-  LinkCard,
   MetadataPill,
-  PageShell,
   PageSection,
   StepItem,
-  SummaryCard,
-  SurfaceGrid,
-  SurfacePanel,
 } from '../index';
 
 describe('ControlSurface', () => {
@@ -94,20 +88,6 @@ describe('ControlSurface', () => {
         <PageSection title="Default section">
           <div>Body</div>
         </PageSection>
-        <PageShell>
-          <SurfaceGrid columns={3}>
-            <SurfacePanel>Panel body</SurfacePanel>
-            <SummaryCard title="Summary" description="Shared card copy" />
-            <LinkCard title="Build" to="/build" description="Build path" />
-            <LinkCard title="External build" href="https://example.com/build" description="External path" />
-          </SurfaceGrid>
-          <SurfaceGrid columns={1} className="custom-grid">
-            <LinkCard title="Fallback link" description="Default destination" />
-          </SurfaceGrid>
-          <SurfaceGrid>
-            <span>Default grid</span>
-          </SurfaceGrid>
-        </PageShell>
         <ActionCard
           title="Internal action"
           description="Minimal card"
@@ -116,25 +96,13 @@ describe('ControlSurface', () => {
             { label: 'External doc', href: 'https://example.com', external: true },
           ]}
         />
-        <InlineGroup compact>
-          <MetadataPill tone="accent">Accent</MetadataPill>
-        </InlineGroup>
+        <MetadataPill tone="accent">Accent</MetadataPill>
         <StepItem index={1} title="Minimal step" description="No extra blocks" />
       </>,
     );
 
     expect(screen.getByRole('heading', { name: 'Default section' })).toBeInTheDocument();
     expect(screen.getByText('Body')).toBeInTheDocument();
-    expect(screen.getByText('Panel body')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Summary' })).toBeInTheDocument();
-    const links = screen.getAllByRole('link');
-    expect(links.some((link) => link.getAttribute('href') === '/build')).toBe(true);
-    expect(screen.getByRole('link', { name: /External build/i })).toHaveAttribute(
-      'href',
-      'https://example.com/build',
-    );
-    expect(screen.getByRole('link', { name: /Fallback link/i })).toHaveAttribute('href', '/');
-    expect(screen.getByText('Default grid')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Fallback route' })).toHaveAttribute('href', '/');
     expect(screen.getByRole('link', { name: 'External doc' })).toHaveAttribute(
       'rel',
