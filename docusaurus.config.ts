@@ -4,6 +4,47 @@ import { SITE_URL } from './siteUrl';
 
 const REPO_URL = 'https://github.com/TrilemmaFoundation/microproduct-lab';
 
+const DOC_ISLAND_EDIT_URL = `${REPO_URL}/edit/main/`;
+
+const docsIslandPlugins = [
+  {
+    id: 'showcase',
+    path: 'docs/showcase',
+    routeBasePath: 'showcase',
+    sidebarPath: false as const,
+  },
+  {
+    id: 'contribute',
+    path: 'docs/contribute',
+    routeBasePath: 'contribute',
+    sidebarPath: false as const,
+  },
+  {
+    id: 'agents',
+    path: 'docs/agents',
+    routeBasePath: 'agents',
+    sidebarPath: false as const,
+  },
+  {
+    id: 'templates',
+    path: 'docs/templates',
+    routeBasePath: 'templates',
+    sidebarPath: false as const,
+  },
+  {
+    id: 'archetypes',
+    path: 'docs/archetypes',
+    routeBasePath: 'archetypes',
+    sidebarPath: './sidebars.archetypes.ts' as const,
+  },
+  {
+    id: 'standards',
+    path: 'docs/standards',
+    routeBasePath: 'standards',
+    sidebarPath: './sidebars.standards.ts' as const,
+  },
+] as const;
+
 const config: Config = {
   title: 'Build Trilemma',
   tagline:
@@ -81,68 +122,19 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'showcase',
-        path: 'docs/showcase',
-        routeBasePath: 'showcase',
-        sidebarPath: false,
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'contribute',
-        path: 'docs/contribute',
-        routeBasePath: 'contribute',
-        sidebarPath: false,
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'agents',
-        path: 'docs/agents',
-        routeBasePath: 'agents',
-        sidebarPath: false,
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'templates',
-        path: 'docs/templates',
-        routeBasePath: 'templates',
-        sidebarPath: false,
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'archetypes',
-        path: 'docs/archetypes',
-        routeBasePath: 'archetypes',
-        sidebarPath: './sidebars.archetypes.ts',
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'standards',
-        path: 'docs/standards',
-        routeBasePath: 'standards',
-        sidebarPath: './sidebars.standards.ts',
-        editUrl: `${REPO_URL}/edit/main/`,
-      },
-    ],
-  ],
+  plugins: docsIslandPlugins.map(
+    (spec) =>
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: spec.id,
+          path: spec.path,
+          routeBasePath: spec.routeBasePath,
+          sidebarPath: spec.sidebarPath,
+          editUrl: DOC_ISLAND_EDIT_URL,
+        },
+      ] as const,
+  ),
 
   themeConfig: {
     colorMode: {

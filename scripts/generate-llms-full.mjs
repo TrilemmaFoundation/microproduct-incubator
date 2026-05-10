@@ -6,33 +6,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import {
+  stripFrontmatterAndMdxForLlms,
+  stripYamlFrontmatter,
+} from './llmsMdxUtils.mjs';
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUTPUT = path.join(ROOT, 'static', 'llms-full.txt');
-
-function stripYamlFrontmatter(text) {
-  if (!text.startsWith('---\n')) {
-    return text.trim();
-  }
-
-  const end = text.indexOf('\n---\n', 4);
-  if (end === -1) {
-    return text.trim();
-  }
-
-  return text.slice(end + 5).trim();
-}
-
-/** Strip MDX import lines and embedded React components for plain-text context bundles. */
-function stripMdxForPlainText(text) {
-  return text
-    .replace(/^import\s+.+$/gm, '')
-    .replace(/<UniversityMarquee\s*\/>/g, '')
-    .trim();
-}
-
-function stripFrontmatterAndMdxForLlms(text) {
-  return stripMdxForPlainText(stripYamlFrontmatter(text));
-}
 
 /** @param {string} rel relative to ROOT */
 function readRel(rel, label, transform = stripYamlFrontmatter) {
@@ -69,21 +49,15 @@ const sources = [
   ['docs/standards/what-counts-as-good.md', 'What counts as a good microproduct', stripYamlFrontmatter],
 ];
 
-const archetypeIds = [
-  'data-to-decision-tool',
-  'ranking-recommendation-engine',
-  'forecasting-product',
-  'risk-scoring-product',
-  'alerting-monitoring-product',
-  'search-discovery-product',
-  'benchmark-evaluation-product',
-  'simulation-backtesting-product',
-  'workflow-automation-product',
-  'agentic-research-product',
-];
+const archetypeDir = path.join(ROOT, 'docs', 'archetypes');
+const archetypeFiles = fs
+  .readdirSync(archetypeDir)
+  .filter((name) => name.endsWith('.md') && name !== 'index.md')
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
-for (const id of archetypeIds) {
-  const rel = path.join('docs/archetypes', `${id}.md`);
+for (const file of archetypeFiles) {
+  const id = path.basename(file, '.md');
+  const rel = path.join('docs', 'archetypes', file);
   sources.push([rel, `Archetype: ${id}`, stripYamlFrontmatter]);
 }
 

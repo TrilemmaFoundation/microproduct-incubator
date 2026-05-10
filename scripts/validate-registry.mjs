@@ -9,6 +9,8 @@ import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
+import { EXPECTED_REGISTRY_ROOT } from './registryRootExpectations.mjs';
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const registryPath = path.join(ROOT, 'static', 'registry.json');
 const schemaPath = path.join(ROOT, 'static', 'schemas', 'product.schema.json');
@@ -31,18 +33,15 @@ const errors = [];
 if (!registry || typeof registry !== 'object') {
   errors.push('registry.json: root must be an object.');
 } else {
-  if (registry.version !== '1.0.0') {
-    errors.push(`registry.json: unexpected version '${registry.version}' (expected 1.0.0)`);
+  if (registry.version !== EXPECTED_REGISTRY_ROOT.version) {
+    errors.push(
+      `registry.json: unexpected version '${registry.version}' (expected ${EXPECTED_REGISTRY_ROOT.version})`,
+    );
   }
-  if (
-    registry.canonical_url !== 'https://build.trilemma.foundation/registry.json'
-  ) {
+  if (registry.canonical_url !== EXPECTED_REGISTRY_ROOT.canonical_url) {
     errors.push('registry.json: canonical_url mismatch (expected canonical build URL).');
   }
-  if (
-    registry.description !==
-    'Machine-readable registry of Trilemma and external microproducts.'
-  ) {
+  if (registry.description !== EXPECTED_REGISTRY_ROOT.description) {
     errors.push('registry.json: description must match canonical copy.');
   }
   if (!Array.isArray(registry.products)) {

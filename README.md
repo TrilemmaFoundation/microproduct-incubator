@@ -35,7 +35,7 @@ This runs:
 - spelling check (`cspell` on `docs/`, `product-templates/`, `templates/`)
 - frontmatter validation (`docs/`, `templates/`, `product-templates/`)
 - registry JSON validation against `static/schemas/product.schema.json` (`validate:registry`)
-- markdown lint (including `product-templates/` and `products/`)
+- markdown lint for `docs/**/*.md` and `docs/**/*.mdx`, plus `README.md`, `CONTRIBUTING.md`, templates, and product templates
 - `generate-llms-full` followed by a production Docusaurus build (static + link checks)
 
 ## Tests
@@ -45,6 +45,8 @@ CI runs `npm run check` then `npm run test:coverage`. Locally:
 ```bash
 npm run test:coverage
 ```
+
+`npm test` and `npm run test:coverage` run **Jest** (React pages and utilities) and **Node’s built-in test runner** for `scripts/llmsMdxUtils.mjs`.
 
 ## Spelling Check
 
