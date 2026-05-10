@@ -35,7 +35,7 @@ This runs:
 - spelling check (`cspell` on `docs/`, `product-templates/`, `templates/`)
 - frontmatter validation (`docs/`, `templates/`, `product-templates/`)
 - registry JSON validation against `static/schemas/product.schema.json` (`validate:registry`)
-- markdown lint for `docs/**/*.md` and `docs/**/*.mdx`, plus `README.md`, `CONTRIBUTING.md`, templates, and product templates
+- markdown lint for `docs/**/*.md` and `docs/**/*.mdx`, plus `README.md`, `CONTRIBUTING.md`, `templates/**/*.md`, `product-templates/**/*.md`, and `products/**/*.md`
 - `generate-llms-full` followed by a production Docusaurus build (static + link checks)
 
 ## Tests
